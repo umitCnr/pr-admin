@@ -1,0 +1,35 @@
+.App{
+    display: flex;
+    border:1px solid black;
+    width: auto;
+    height: 60%;
+    padding: 30px;
+    background-color: blueviolet;
+}
+
+.custom-button {
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+    color: white;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 20px;
+    margin-right:40px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:hover {
+    background: linear-gradient(45deg, #00bfff, #1e90ff);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Tıklanınca arka plan rengi değişir */
+.custom-button.clicked {
+    background: linear-gradient(45deg, #32cd32, #3cb371);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px); /* Tıklanınca biraz daha yukarı kalkar */
+}
+
