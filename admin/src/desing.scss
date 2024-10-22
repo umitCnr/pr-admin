@@ -1,0 +1,41 @@
+.add-button{
+  background-color:dodgerblue;
+  height: 12vh;
+  max-height: 50%;
+  width: 100%;
+  justify-content: end;
+  color:white;
+  font-size:15px;
+  font-weight:bolder;
+  border:none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover{
+  background-color: deepskyblue;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 191, 255, 0.7);
+}
+
+.dialog {
+  position: fixed;
+  z-index: 1300;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.dialog-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
