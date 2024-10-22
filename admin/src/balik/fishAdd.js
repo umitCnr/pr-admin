@@ -63,14 +63,14 @@ const FishAddPage = () => {
                         <div className={"dialog-open"}/>
                         <div className={"dialog"}>
                             <div className={"fish-name"}>
-                                <label>isim :</label>
+                                <label>isim</label>
                                 <input type={'text'} value={name} onChange={fish}/>
                             </div>
                             <div>
                                <ImageFish/>
                             </div>
                             <div>
-                                <label>açıklama :</label>
+                                <label>açıklama</label>
                                 <input type={'text'} value={description} onChange={fishDescription}/>
                             </div>
                             <div>
@@ -97,8 +97,8 @@ const FishAddPage = () => {
                                     <label htmlFor="TUZLU">Tuzlu Su Balığı</label>
                                 </div>
                             </div>
-                            <button onClick={addFishDB}>kaydet</button>
-                            <button onClick={closeDialog}>Kapat</button>
+                            <button className={"add-button d-b"} onClick={addFishDB}>kaydet</button>
+                            <button className={"add-button d-b"} onClick={closeDialog}>Kapat</button>
                         </div>
                     </>
                 )}

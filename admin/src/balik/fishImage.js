@@ -17,7 +17,7 @@ const ImageFish = () =>{
           {SetImage && (
               <div>
                   <h2>Yüklenen Resim:</h2>
-                  <img src={image} alt="Selected" style={{ width: '300px', height: 'auto' }} />
+                  <img src={image} alt="Selected" style={{ width: '300px', height: 'auto',margin:'10px' }} />
               </div>
           )}
       </div>
