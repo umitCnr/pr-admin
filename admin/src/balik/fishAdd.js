@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './../desing.scss';
 import './fishDesing.css';
 import axios from "axios";
 import ImageFish from "./fishImage";
+import GetFishAll from "./getFish/GetFishPage";
 
 const FishAddPage = () => {
-
     const [showAdd, setShowAdd] = useState(false);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [radio, setRadio] = useState('');
-
+    const [imageFile, setImageFile] = useState(null);
 
     const showDialog = () => {
         setShowAdd(true);
@@ -21,6 +21,7 @@ const FishAddPage = () => {
         setName("");
         setDescription("");
         setRadio("");
+        setImageFile(null);
     };
 
     const fish = (e) => {
@@ -34,24 +35,31 @@ const FishAddPage = () => {
         setRadio(e.target.value);
     }
 
-    const addFishDB = async (e) => {
-
-        const data = {
-            name: name,
-            description: description,
-            kind: radio
-        };
+    const addFishDB = async () => {
+        const data = new FormData();
+        data.append("file", imageFile);
+        data.append("name", name);
+        data.append("description", description);
+        data.append("kind", radio);
 
         try {
-
-            const response = await axios.post('http://localhost:8081/omurgasiz/save', data);
-            console.log("başarıyle yüklendi" + response)
-
+            const response = await axios.post('http://localhost:8081/fish/save', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log("Başarıyla yüklendi: ", response.data);
+            alert("eklendi!")
+            setShowAdd(false);
         } catch (e) {
-            console.log("data gönderilmedi :" + e)
+            console.log("Data gönderilmedi: ", e);
+            alert("hata")
         }
-    }
+    };
 
+    const handleImageUpload = (file) => {
+        setImageFile(file);
+    };
 
     return (
         <div className={"main-flex"}>
@@ -60,18 +68,18 @@ const FishAddPage = () => {
 
                 {showAdd && (
                     <>
-                        <div className={"dialog-open"}/>
+                        <div className={"dialog-open"} />
                         <div className={"dialog"}>
                             <div className={"fish-name"}>
                                 <label>isim</label>
-                                <input type={'text'} value={name} onChange={fish}/>
+                                <input type={'text'} value={name} onChange={fish} />
                             </div>
                             <div>
-                               <ImageFish/>
+                                <ImageFish onImageUpload={handleImageUpload} />
                             </div>
                             <div>
                                 <label>açıklama</label>
-                                <input type={'text'} value={description} onChange={fishDescription}/>
+                                <input type={'text'} value={description} onChange={fishDescription} />
                             </div>
                             <div>
                                 <div>
@@ -97,11 +105,15 @@ const FishAddPage = () => {
                                     <label htmlFor="TUZLU">Tuzlu Su Balığı</label>
                                 </div>
                             </div>
-                            <button className={"add-button d-b"} onClick={addFishDB}>kaydet</button>
+                            <button className={"add-button d-b"} onClick={addFishDB}>Kaydet</button>
                             <button className={"add-button d-b"} onClick={closeDialog}>Kapat</button>
                         </div>
                     </>
                 )}
+            </div>
+
+            <div>
+                <GetFishAll/>
             </div>
         </div>
     );

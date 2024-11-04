@@ -12,6 +12,27 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.btn-card {
+  background-color: #006d5b;
+  height: 5vh;
+  max-height: 50%;
+  width: auto;
+  justify-content: end;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.btn-card:hover {
+  background-color: #4eb1a0;
+  box-shadow: 0 4px 20px rgba(78, 177, 160, 0.5);
+  transform: scale(1.05);
+}
+
+
 .add-button:hover{
   background-color: deepskyblue;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 191, 255, 0.7);
