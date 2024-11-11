@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import "./GetFishDesing.css";
+import "./GetOmurgasizDesing.css";
 import axios from "axios";
-import FishCards from "./GetFishCards";
+import FishCards from "./OmurgasizCard";
 
-const GetFishAll = () => {
+const GetOmurgasizAll = () => {
 
     const [getFish, setGetFish] = useState([]);
     const [selectFish, SetSelectFish] = useState(null)
@@ -11,7 +11,7 @@ const GetFishAll = () => {
     const itemsPerPage = 5;
 
     useEffect(() => {
-        axios.get('http://localhost:8081/fish/all')
+        axios.get('http://localhost:8081/omurgasiz/getAll')
             .then(getAllData => setGetFish(getAllData.data))
             .catch(err => {
                 console.log("datalar gelmedi :" + err);
@@ -41,7 +41,7 @@ const GetFishAll = () => {
     }
 
     const deleteById = (id) => {
-        axios.delete(`http://localhost:8081/fish/del/${id}`)
+        axios.delete(`http://localhost:8081/omurgasiz/del/${id}`)
             .then(() => {
                 setGetFish(getFish.filter(fish => fish.id !== id))
                 alert('Balık başarıyla silindi!');
@@ -97,4 +97,4 @@ const GetFishAll = () => {
     );
 }
 
-export default GetFishAll;
+export default GetOmurgasizAll;

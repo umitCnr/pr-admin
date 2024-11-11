@@ -26,10 +26,10 @@
     transform: translateY(-3px);
 }
 
-/* Tıklanınca arka plan rengi değişir */
+
 .custom-button.clicked {
     background: linear-gradient(45deg, #32cd32, #3cb371);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px); /* Tıklanınca biraz daha yukarı kalkar */
+    transform: translateY(-5px);
 }
 

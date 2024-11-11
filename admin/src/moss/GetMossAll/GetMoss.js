@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import "./GetFishDesing.css";
+import './GetMossDesing.css';
 import axios from "axios";
-import FishCards from "./GetFishCards";
+import MossCards from "./MossCard";
 
-const GetFishAll = () => {
+const GetMossAll = () => {
 
     const [getFish, setGetFish] = useState([]);
     const [selectFish, SetSelectFish] = useState(null)
@@ -11,7 +11,7 @@ const GetFishAll = () => {
     const itemsPerPage = 5;
 
     useEffect(() => {
-        axios.get('http://localhost:8081/fish/all')
+        axios.get('http://localhost:8081/bitki/getAll')
             .then(getAllData => setGetFish(getAllData.data))
             .catch(err => {
                 console.log("datalar gelmedi :" + err);
@@ -41,7 +41,7 @@ const GetFishAll = () => {
     }
 
     const deleteById = (id) => {
-        axios.delete(`http://localhost:8081/fish/del/${id}`)
+        axios.delete(`http://localhost:8081/bitki/delete/${id}`)
             .then(() => {
                 setGetFish(getFish.filter(fish => fish.id !== id))
                 alert('Balık başarıyla silindi!');
@@ -92,9 +92,9 @@ const GetFishAll = () => {
                     ))}
                 </div>
             </div>
-            <FishCards selectCard={selectFish}/>
+            <MossCards selectCard={selectFish}/>
         </div>
     );
 }
 
-export default GetFishAll;
+export default GetMossAll;
